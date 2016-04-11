@@ -64,7 +64,7 @@ usuario = Usuario.new('martin', 'pass')
 			choose do |menu|
 						if !usuario.esta_logueado?
 								menu.choice(:Loguin) {
-									nick = ask("ingrese su usuario:  ")
+									nick = ask("ingrese su usuario:  ")   
 									pass = ask("Ingrese su contraseña:  ") { |q| q.echo = "*" }
 									if (usuario.nick == nick) & (usuario.password == pass)
 										usuario.loguear

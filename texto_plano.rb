@@ -3,7 +3,7 @@ class TextoPlano
     clave
   end
 
-  def desencriptar(clave)
-    clave
+  def validar(clave, clave_encriptada)
+    clave == clave_encriptada
   end
 end

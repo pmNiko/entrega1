@@ -11,4 +11,8 @@ class CaesarCipher
   def desencriptar(clave)
     clave.tr(@cipher, @alfanumerico)
   end
+
+  def validar(clave, clave_encriptada)
+    clave == self.desencriptar(clave_encriptada)
+  end
 end

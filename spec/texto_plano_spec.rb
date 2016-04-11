@@ -1,14 +1,14 @@
 require_relative '../texto_plano'
 
 describe TextoPlano do
-			encriptador = TextoPlano.new
+			codificador = TextoPlano.new
 	it "Encriptacion de una clave" do
-      expect(encriptador.encriptar 'miclavesegura').to eq 'miclavesegura'
+      expect(codificador.encriptar 'miclavesegura').to eq 'miclavesegura'
   end
 
-  it "Desencriptacion de una clave" do
-      clave = encriptador.encriptar 'miclavesegura'
-      expect(encriptador.desencriptar clave).to eq 'miclavesegura'
+  it "Validar una clave" do
+      clave = codificador.encriptar 'miclavesegura'
+      expect(codificador.validar 'miclavesegura',clave ).to eq true
   end
 
 end
