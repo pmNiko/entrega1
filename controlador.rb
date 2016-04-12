@@ -7,12 +7,20 @@ class Controlador
       @sesion = Sesion.new
     end
 
-    def nick_disponible?
-      !@manager.existe_nick?
+    def reencriptar(nick, pass)
+      @manager.reencriptar(nick, pass)
     end
 
-    def registrar
+    def usuario_actual
+      @sesion.usuario_actual
+    end
 
+    def existe_nick(nick)
+      @manager.existe_nick(nick)
+    end
+
+    def registrar(nick, pass)
+      @manager.registrar(nick, pass)
     end
 
     def validar(nick, pass)
@@ -23,8 +31,8 @@ class Controlador
       @sesion.estado_de_coneccion
     end
 
-    def abrir_sesion
-      @sesion.conectar
+    def abrir_sesion(nick)
+      @sesion.conectar_con(nick)
     end
 
     def cerrar_sesion
@@ -35,8 +43,8 @@ class Controlador
       @manager.usar_texto_plano
     end
 
-    def usar_caesar_cypher
-      @manager.usar_caesar_cypher
+    def usar_caesar_cipher
+      @manager.usar_caesar_cipher
     end
 
     def usar_bcrypt
