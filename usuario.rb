@@ -1,22 +1,11 @@
 class Usuario
-  attr_reader :nick, :password, :estado
+  attr_reader :nick, :password, :codificador
+  attr_writer :codificador
 
-  def initialize(nick, password)
+  def initialize(nick='', password='', codificador)
     @nick = nick
     @password = password
-    @estado = 'deslogueado'
-  end
-
-  def esta_logueado?
-    @estado == 'logueado'
-  end
-
-  def loguear
-    @estado = 'logueado'
-  end
-
-  def desloguear
-    @estado = 'deslogueado'
+    @codificador = codificador
   end
 
   def cambiar_pass(nuevo_pass)
