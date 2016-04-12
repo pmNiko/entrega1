@@ -48,29 +48,29 @@ loop do
 														end
 											end
 									loop do
-										terminar = false
+												terminar = false
 												choose do |opcion|
-													opcion.choice(:Elegir_nick)do
-															nick = ask("ingrese su usuario:  ")
-															if @controlador.nick_disponible?
-																	pass = ask("Ingrese su contraseña:  ")  { |q| q.echo = "*" }
-																	pass_confirm = ask("Vuelva a ingresar su contraseña:  ") { |q| q.echo = "*" }
-																	if pass == pass_confirm
-																			say("Gracias pòr registrarse!. Ya puede loguearse")
-																	else
-																			say("Las contraseñas no coinciden.")
-																	end
-															else
-																  say("El nick que eligio se encuentra en uso, pronto tendremos un ayudante, por favor vuelva a intentar.")
+															opcion.choice(:Elegir_nick)do
+																		nick = ask("ingrese su usuario:  ")
+																		if @controlador.nick_disponible?
+																				pass = ask("Ingrese su contraseña:  ")  { |q| q.echo = "*" }
+																				pass_confirm = ask("Vuelva a ingresar su contraseña:  ") { |q| q.echo = "*" }
+																				if pass == pass_confirm
+																						say("Gracias pòr registrarse!. Ya puede loguearse")
+																				else
+																						say("Las contraseñas no coinciden.")
+																				end
+																		else
+																			  say("El nick que eligio se encuentra en uso, pronto tendremos un ayudante, por favor vuelva a intentar.")
+																		end
 															end
-													end
-
-													opcion.choice(:terminar)do
-														terminar = true
-													end
-
+															opcion.choice(:terminar)do
+																terminar = true
+															end
+												end
 										break if terminar
 								  end
+
 								end
 						end
 						menu.choice(:Estado) do
@@ -87,5 +87,4 @@ loop do
 			end
 
    break if salir
- end
  end
