@@ -19,7 +19,7 @@ class ManagerDeUsuario
 
     def reencriptar(nick, pass)
       usuario = self.buscar(nick)
-      usuario.codificador(@codificador_asignado)
+      usuario.codificador=@codificador_asignado
       password = @codificador_asignado.encriptar(pass)
       usuario.cambiar_pass(password)
     end

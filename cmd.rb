@@ -96,8 +96,9 @@ loop do
 						menu.choice(:Estado) do
 								if @controlador.hay_sesion?
 				        		say('Usted esta " Logueado "')
+								else
+										say('Usted esta " Deslogueado " por favor inicie sesion o registrese.')
 								end
-								say('Usted esta " Deslogueado " por favor inicie sesion o registrese.')
 						end
 						menu.choice(:Salir) do
 								@controlador.cerrar_sesion

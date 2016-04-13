@@ -28,7 +28,7 @@ class Controlador
     end
 
     def hay_sesion?
-      @sesion.estado_de_coneccion
+      @sesion.hay_usuario_logueado?
     end
 
     def abrir_sesion(nick)
