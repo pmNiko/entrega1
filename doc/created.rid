@@ -1,0 +1,15 @@
+Thu, 14 Apr 2016 15:58:14 -0300
+./texto_plano.rb	Thu, 14 Apr 2016 13:33:37 -0300
+./controlador.rb	Thu, 14 Apr 2016 13:28:09 -0300
+./spec/caesar_cipher_spec.rb	Sun, 10 Apr 2016 23:10:32 -0300
+./spec/bcrypt_spec.rb	Tue, 12 Apr 2016 19:32:47 -0300
+./spec/texto_plano_spec.rb	Sun, 10 Apr 2016 23:12:19 -0300
+./spec/spec_helper.rb	Thu, 14 Apr 2016 12:46:30 -0300
+./caesar_cipher.rb	Thu, 14 Apr 2016 12:57:18 -0300
+./Gemfile	Thu, 14 Apr 2016 15:52:06 -0300
+./bcrypt.rb	Thu, 14 Apr 2016 13:33:59 -0300
+./Gemfile.lock	Thu, 14 Apr 2016 15:54:55 -0300
+./usuario.rb	Thu, 14 Apr 2016 13:35:16 -0300
+./cmd.rb	Thu, 14 Apr 2016 13:40:33 -0300
+./sesion.rb	Thu, 14 Apr 2016 15:55:43 -0300
+./manager_de_usuario.rb	Thu, 14 Apr 2016 13:27:36 -0300

@@ -6,5 +6,4 @@ class Usuario
     @password = password
     @codificador = codificador
   end
-  
 end

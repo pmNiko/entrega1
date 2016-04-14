@@ -1,10 +1,12 @@
 class CaesarCipher
   def descripcion
-    "en Caesar Cipher"
+    'Caesar Cipher'
   end
 
   def initialize
-    @alfanumerico = ('a'..'z').to_a.join + ('A'..'Z').to_a.join + ('0'..'9').to_a.join
+    alfabeto = ('a'..'z').to_a.join + ('A'..'Z').to_a.join
+    numeros = ('0'..'9').to_a.join
+    @alfanumerico = alfabeto + numeros
     @cipher = @alfanumerico.chars.rotate(3).join
   end
 

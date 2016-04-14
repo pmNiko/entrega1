@@ -1,8 +1,8 @@
 class TextoPlano
   def descripcion
-    "en Texto Plano"
+    'Texto Plano'
   end
-  
+
   def encriptar(password)
     password
   end
