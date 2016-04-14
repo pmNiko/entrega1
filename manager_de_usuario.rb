@@ -4,37 +4,40 @@ require_relative 'caesar_cipher'
 require_relative 'bcrypt'
 
 class ManagerDeUsuario
-  attr_reader :usuarios
+    attr_reader :usuarios; :codificador_asignado
 
     def initialize
         @usuarios = []
-        @codificador_asignado = TextoPlano.new
     end
 
-    def validar(nick, pass)
-      usuario = self.buscar(nick)
+    def validar(nick, password)
+      usuario = buscar(nick)
       codificador = usuario.codificador
-      codificador.validar(pass, usuario.password)
+      codificador.validar(password, usuario.password)
     end
 
-    def reencriptar(nick, pass)
-      usuario = self.buscar(nick)
-      usuario.codificador=@codificador_asignado
-      password = @codificador_asignado.encriptar(pass)
-      usuario.cambiar_pass(password)
+    def reencriptar(nick, password)
+      usuario = buscar(nick)
+      usuario.codificador= @codificador_asignado
+      usuario.password= @codificador_asignado.encriptar(password)
     end
 
-    def registrar(nick, pass)
-        password = @codificador_asignado.encriptar(pass)
+    def registrar(nick, password)
+        password = @codificador_asignado.encriptar(password)
         @usuarios << Usuario.new(nick, password, @codificador_asignado)
     end
 
-    def existe_nick(nick)
+    def existe_nick?(nick)
         @usuarios.any?{ |usuario| usuario.nick.eql? nick}
     end
 
     def buscar(nick)
         @usuarios.detect{|usuario| usuario.nick.eql? nick}
+    end
+
+    def codificador_de(nick)
+        usuario = buscar(nick)
+        usuario.codificador.descripcion
     end
 
     def usar_texto_plano

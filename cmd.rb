@@ -12,40 +12,37 @@ loop do
 										@controlador.cerrar_sesion
 								end
 								menu.choice(:Cambiar_Encriptacion) do
-											say("#{@controlador.usuario_actual} para realizar esta accion por
-														favor autentifiquese")
-											pass = ask("Ingrese su contraseña:  ") { |q| q.echo = "*" }
-											if @controlador.validar(@controlador.usuario_actual, pass)
+											nick_usuario = @controlador.usuario_actual?
+											say("#{nick_usuario} para realizar esta accion por favor autentifiquese")
+											password = ask("Ingrese su contraseña:  ") { |q| q.echo = "*" }
+											if @controlador.validar(nick_usuario, password)
 																choose do |codificacion|
 																			codificacion.choice(:Texto_plano) do
-																					codificador = "Texto Plano"
 																					@controlador.usar_texto_plano
 																			end
 																			codificacion.choice(:Caesar_cipher) do
-																					codificador = "Caesar Cipher"
 																					@controlador.usar_caesar_cipher
 																			end
 																			codificacion.choice(:Bcrypt) do
-																					codificador = "Bcrypt"
 																					@controlador.usar_bcrypt
 																			end
 																end
-																@controlador.reencriptar(@controlador.usuario_actual, pass)
-																say("#{@controlador.usuario_actual}
-																 su contraseña paso a estar encriptada con #{codificador} ")
+																@controlador.reencriptar(nick_usuario, password)
+																codificador_elegido = @controlador.codificador_de(nick_usuario)
+																say("#{nick_usuario} su contraseña paso a estar encriptada con #{codificador_elegido}")
 											else
-																say("La contraseña no es valida, usted no es #{@controlador.usuario_actual}")
+																say("La contraseña no es valida, usted no es #{nick_usuario}")
 											end
 
 								end
 						else
 								menu.choice(:Loguin) do
 										nick = ask("ingrese su usuario:  ")
-										if @controlador.existe_nick(nick)
-													pass = ask("Ingrese su contraseña:  ") { |q| q.echo = "*" }
-													if @controlador.validar(nick, pass)
+										if @controlador.existe_nick?(nick)
+													password = ask("Ingrese su contraseña:  ") { |q| q.echo = "*" }
+													if @controlador.validar(nick, password)
 																@controlador.abrir_sesion(nick)
-																say("Gracias iniciar sesion #{@controlador.usuario_actual}")
+																say("Gracias iniciar sesion #{nick}")
 													else
 																say("Usuario o contraseña invalid@s por favor vuelva a intentar")
 													end
@@ -71,14 +68,15 @@ loop do
 												choose do |opcion|
 															opcion.choice(:Elegir_nick)do
 																		nick = ask("ingrese su usuario:  ")
-																		if @controlador.existe_nick(nick)
-																			  say("El nick que eligio se encuentra en uso, pronto tendremos un ayudante, por favor vuelva a intentar.")
+																		if @controlador.existe_nick?(nick)
+																			  say("El nick que eligio se encuentra en uso, pronto tendremos un ayudante, por favor vuelva a intentar ó elija terminar.")
 																		else
-																				pass = ask("Ingrese su contraseña:  ")  { |q| q.echo = "*" }
-																				pass_confirm = ask("Vuelva a ingresar su contraseña:  ") { |q| q.echo = "*" }
-																				if pass == pass_confirm
-																						@controlador.registrar(nick, pass)
+																				password = ask("Ingrese su contraseña:  ")  { |q| q.echo = "*" }
+																				password_confirm = ask("Vuelva a ingresar su contraseña:  ") { |q| q.echo = "*" }
+																				if password == password_confirm
+																						@controlador.registrar(nick, password)
 																						say("Gracias pòr registrarse!. Ya puede loguearse")
+																						terminar = true
 																				else
 																						say("Las contraseñas no coinciden.")
 																				end

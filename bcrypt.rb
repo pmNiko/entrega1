@@ -1,12 +1,15 @@
 require 'bcrypt'
 include BCrypt
-
 class Bcrypt
+	def descripcion
+    "en BCrypt"
+  end
+
 	def encriptar(password)
 		 Password.create(password, cost: 10)
 	end
 
-	def validar(clave, clave_encriptada)
-		 Password.new(clave_encriptada) == clave
+	def validar(password, password_encriptada)
+		 Password.new(password_encriptada) == password
 	end
 end

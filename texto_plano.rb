@@ -1,9 +1,13 @@
 class TextoPlano
-  def encriptar(clave)
-    clave
+  def descripcion
+    "en Texto Plano"
+  end
+  
+  def encriptar(password)
+    password
   end
 
-  def validar(clave, clave_encriptada)
-    clave == clave_encriptada
+  def validar(password, password_encriptada)
+    password == password_encriptada
   end
 end

@@ -7,28 +7,36 @@ class Controlador
       @sesion = Sesion.new
     end
 
-    def reencriptar(nick, pass)
-      @manager.reencriptar(nick, pass)
+    def codificador_actual?
+      @manager.codificador_asignado
     end
 
-    def usuario_actual
-      @sesion.usuario_actual
-    end
-
-    def existe_nick(nick)
-      @manager.existe_nick(nick)
-    end
-
-    def registrar(nick, pass)
-      @manager.registrar(nick, pass)
-    end
-
-    def validar(nick, pass)
-      @manager.validar(nick, pass)
+    def codificador_de(nick)
+        @manager.codificador_de(nick)
     end
 
     def hay_sesion?
       @sesion.hay_usuario_logueado?
+    end
+
+    def usuario_actual?
+      @sesion.usuario_actual
+    end
+
+    def existe_nick?(nick)
+      @manager.existe_nick?(nick)
+    end
+
+    def registrar(nick, password)
+      @manager.registrar(nick, password)
+    end
+
+    def reencriptar(nick, password)
+      @manager.reencriptar(nick, password)
+    end
+
+    def validar(nick, password)
+      @manager.validar(nick, password)
     end
 
     def abrir_sesion(nick)

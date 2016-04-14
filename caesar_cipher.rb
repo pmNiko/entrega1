@@ -1,18 +1,22 @@
 class CaesarCipher
+  def descripcion
+    "en Caesar Cipher"
+  end
+
   def initialize
     @alfanumerico = ('a'..'z').to_a.join + ('A'..'Z').to_a.join + ('0'..'9').to_a.join
     @cipher = @alfanumerico.chars.rotate(3).join
   end
 
-  def encriptar(clave)
-    clave.tr(@alfanumerico, @cipher)
+  def encriptar(password)
+    password.tr(@alfanumerico, @cipher)
   end
 
-  def desencriptar(clave)
-    clave.tr(@cipher, @alfanumerico)
+  def desencriptar(password)
+    password.tr(@cipher, @alfanumerico)
   end
 
-  def validar(clave, clave_encriptada)
-    clave == self.desencriptar(clave_encriptada)
+  def validar(password, password_encriptada)
+    password == desencriptar(password_encriptada)
   end
 end

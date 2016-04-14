@@ -1,6 +1,5 @@
 class Sesion
-    attr_accessor :usuario_actual
-
+    attr_reader:usuario_actual
     def initialize
       desconectar
     end
@@ -14,7 +13,7 @@ class Sesion
     end
 
     def hay_usuario_logueado?
-      @usuario_actual != nil
+      @usuario_actual.nil?
     end
 
 end
