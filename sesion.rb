@@ -1,3 +1,4 @@
+# Objeto que definira el estado de el usuario
 class Sesion
   attr_reader :usuario_actual
   def initialize

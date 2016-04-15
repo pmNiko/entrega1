@@ -1,13 +1,14 @@
 require_relative 'manager_de_usuario'
 require_relative 'sesion'
-
+# Esta clase sera la encargada de derivar los procesos a quien corresponda.
+# =>Separa la vista del modelo siguiendo el modelo MVC.
 class Controlador
   def initialize
     @manager = ManagerDeUsuario.new
     @sesion = Sesion.new
   end
 
-  def codificador_asignado?
+  def codificador_asignado
     @manager.codificador_asignado.descripcion
   end
 
@@ -19,7 +20,7 @@ class Controlador
     @sesion.hay_usuario_logueado?
   end
 
-  def usuario_actual?
+  def usuario_actual
     @sesion.usuario_actual
   end
 

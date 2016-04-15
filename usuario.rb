@@ -1,3 +1,4 @@
+# Definicion de la clase Usuario.
 class Usuario
   attr_accessor :nick, :password, :codificador
 

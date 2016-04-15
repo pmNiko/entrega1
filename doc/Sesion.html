@@ -91,6 +91,8 @@
 
   <section class="description">
     
+<p>Objeto que definira el estado de el usuario</p>
+
   </section>
 
   
@@ -152,7 +154,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File sesion.rb, line 3</span>
+            <pre><span class="ruby-comment"># File sesion.rb, line 4</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
   <span class="ruby-identifier">desconectar</span>
 <span class="ruby-keyword">end</span></pre>
@@ -193,7 +195,7 @@
 
           
           <div class="method-source-code" id="conectar_con-source">
-            <pre><span class="ruby-comment"># File sesion.rb, line 7</span>
+            <pre><span class="ruby-comment"># File sesion.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">conectar_con</span>(<span class="ruby-identifier">nick</span>)
   <span class="ruby-ivar">@usuario_actual</span> = <span class="ruby-identifier">nick</span>
 <span class="ruby-keyword">end</span></pre>
@@ -226,7 +228,7 @@
 
           
           <div class="method-source-code" id="desconectar-source">
-            <pre><span class="ruby-comment"># File sesion.rb, line 11</span>
+            <pre><span class="ruby-comment"># File sesion.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">desconectar</span>
   <span class="ruby-ivar">@usuario_actual</span> = <span class="ruby-keyword">nil</span>
 <span class="ruby-keyword">end</span></pre>
@@ -259,7 +261,7 @@
 
           
           <div class="method-source-code" id="hay_usuario_logueado-3F-source">
-            <pre><span class="ruby-comment"># File sesion.rb, line 15</span>
+            <pre><span class="ruby-comment"># File sesion.rb, line 16</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">hay_usuario_logueado?</span>
   <span class="ruby-operator">!</span><span class="ruby-ivar">@usuario_actual</span>.<span class="ruby-identifier">nil?</span>
 <span class="ruby-keyword">end</span></pre>

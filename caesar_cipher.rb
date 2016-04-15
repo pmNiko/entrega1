@@ -1,3 +1,7 @@
+# Definicion de la clase CaesarCipher.
+# =>Este es uno de los metodos de encriptacion.
+# =>Vulnerabilidad:  "Alta" (No utilizar)
+# =>Desencriptado:   -> Por fuerza bruta o analisis de frecuencia de letras.
 class CaesarCipher
   def descripcion
     'Caesar Cipher'

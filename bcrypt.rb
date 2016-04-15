@@ -1,6 +1,9 @@
 require 'bcrypt'
 include BCrypt
-
+# Definicion de la clase Bcrypt.
+# =>Este es uno de los metodos de encriptacion.
+# =>Vulnerabilidad:  "Baja" (Recomendado)
+# =>Desencriptado:   -> No es reversible.
 class Bcrypt
   def descripcion
     'BCrypt'

@@ -103,6 +103,10 @@
 
   <section class="description">
     
+<p>Manejador los usuarios y el comportamiendo relacionado a ellos</p>
+
+<h1 id="class-ManagerDeUsuario-label-3E+Agregado-2C+modificacion+y+busqueda.">&gt; Agregado, modificacion y busqueda.<span><a href="#class-ManagerDeUsuario-label-3E+Agregado-2C+modificacion+y+busqueda.">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
   </section>
 
   
@@ -121,6 +125,19 @@
         <h3>Attributes</h3>
       </header>
 
+      
+      <div id="attribute-i-codificador_asignado" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">codificador_asignado</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
       
       <div id="attribute-i-usuarios" class="method-detail">
         <div class="method-heading attribute-method-heading">
@@ -164,7 +181,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File manager_de_usuario.rb, line 8</span>
+            <pre><span class="ruby-comment"># File manager_de_usuario.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
   <span class="ruby-ivar">@usuarios</span> = []
 <span class="ruby-keyword">end</span></pre>
@@ -205,9 +222,9 @@
 
           
           <div class="method-source-code" id="buscar-source">
-            <pre><span class="ruby-comment"># File manager_de_usuario.rb, line 33</span>
+            <pre><span class="ruby-comment"># File manager_de_usuario.rb, line 35</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">buscar</span>(<span class="ruby-identifier">nick</span>)
-  <span class="ruby-ivar">@usuarios</span>.<span class="ruby-identifier">detect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">usuario</span><span class="ruby-operator">|</span> <span class="ruby-identifier">usuario</span>.<span class="ruby-identifier">nick</span>.<span class="ruby-identifier">eql?</span> <span class="ruby-identifier">nick</span> }
+  <span class="ruby-ivar">@usuarios</span>.<span class="ruby-identifier">detect</span>(<span class="ruby-operator">-</span><span class="ruby-operator">&gt;</span> { <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&#39;El usuario no existe&#39;</span> }) { <span class="ruby-operator">|</span><span class="ruby-identifier">usuario</span><span class="ruby-operator">|</span> <span class="ruby-identifier">usuario</span>.<span class="ruby-identifier">nick</span>.<span class="ruby-identifier">eql?</span> <span class="ruby-identifier">nick</span> }
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -238,7 +255,7 @@
 
           
           <div class="method-source-code" id="codificador_de-source">
-            <pre><span class="ruby-comment"># File manager_de_usuario.rb, line 37</span>
+            <pre><span class="ruby-comment"># File manager_de_usuario.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">codificador_de</span>(<span class="ruby-identifier">nick</span>)
   <span class="ruby-identifier">usuario</span> = <span class="ruby-identifier">buscar</span>(<span class="ruby-identifier">nick</span>)
   <span class="ruby-identifier">usuario</span>.<span class="ruby-identifier">codificador</span>.<span class="ruby-identifier">descripcion</span>
@@ -272,7 +289,7 @@
 
           
           <div class="method-source-code" id="existe_nick-3F-source">
-            <pre><span class="ruby-comment"># File manager_de_usuario.rb, line 29</span>
+            <pre><span class="ruby-comment"># File manager_de_usuario.rb, line 31</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">existe_nick?</span>(<span class="ruby-identifier">nick</span>)
   <span class="ruby-ivar">@usuarios</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">usuario</span><span class="ruby-operator">|</span> <span class="ruby-identifier">usuario</span>.<span class="ruby-identifier">nick</span>.<span class="ruby-identifier">eql?</span> <span class="ruby-identifier">nick</span> }
 <span class="ruby-keyword">end</span></pre>
@@ -299,13 +316,13 @@
 
         <div class="method-description">
           
-          
+          <p>Este se usara cuando el usuario decida cambiar el metodo de cifrado.</p>
           
           
 
           
           <div class="method-source-code" id="reencriptar-source">
-            <pre><span class="ruby-comment"># File manager_de_usuario.rb, line 18</span>
+            <pre><span class="ruby-comment"># File manager_de_usuario.rb, line 20</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">reencriptar</span>(<span class="ruby-identifier">nick</span>, <span class="ruby-identifier">password</span>)
   <span class="ruby-identifier">usuario</span> = <span class="ruby-identifier">buscar</span>(<span class="ruby-identifier">nick</span>)
   <span class="ruby-identifier">usuario</span>.<span class="ruby-identifier">codificador</span> = <span class="ruby-ivar">@codificador_asignado</span>
@@ -340,7 +357,7 @@
 
           
           <div class="method-source-code" id="registrar-source">
-            <pre><span class="ruby-comment"># File manager_de_usuario.rb, line 24</span>
+            <pre><span class="ruby-comment"># File manager_de_usuario.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">registrar</span>(<span class="ruby-identifier">nick</span>, <span class="ruby-identifier">password</span>)
   <span class="ruby-identifier">password</span> = <span class="ruby-ivar">@codificador_asignado</span>.<span class="ruby-identifier">encriptar</span>(<span class="ruby-identifier">password</span>)
   <span class="ruby-ivar">@usuarios</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Usuario</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">nick</span>, <span class="ruby-identifier">password</span>, <span class="ruby-ivar">@codificador_asignado</span>)
@@ -374,7 +391,7 @@
 
           
           <div class="method-source-code" id="usar_bcrypt-source">
-            <pre><span class="ruby-comment"># File manager_de_usuario.rb, line 50</span>
+            <pre><span class="ruby-comment"># File manager_de_usuario.rb, line 52</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">usar_bcrypt</span>
   <span class="ruby-ivar">@codificador_asignado</span> = <span class="ruby-constant">Bcrypt</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -407,7 +424,7 @@
 
           
           <div class="method-source-code" id="usar_caesar_cipher-source">
-            <pre><span class="ruby-comment"># File manager_de_usuario.rb, line 46</span>
+            <pre><span class="ruby-comment"># File manager_de_usuario.rb, line 48</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">usar_caesar_cipher</span>
   <span class="ruby-ivar">@codificador_asignado</span> = <span class="ruby-constant">CaesarCipher</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -440,7 +457,7 @@
 
           
           <div class="method-source-code" id="usar_texto_plano-source">
-            <pre><span class="ruby-comment"># File manager_de_usuario.rb, line 42</span>
+            <pre><span class="ruby-comment"># File manager_de_usuario.rb, line 44</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">usar_texto_plano</span>
   <span class="ruby-ivar">@codificador_asignado</span> = <span class="ruby-constant">TextoPlano</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -473,7 +490,7 @@
 
           
           <div class="method-source-code" id="validar-source">
-            <pre><span class="ruby-comment"># File manager_de_usuario.rb, line 12</span>
+            <pre><span class="ruby-comment"># File manager_de_usuario.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">validar</span>(<span class="ruby-identifier">nick</span>, <span class="ruby-identifier">password</span>)
   <span class="ruby-identifier">usuario</span> = <span class="ruby-identifier">buscar</span>(<span class="ruby-identifier">nick</span>)
   <span class="ruby-identifier">codificador</span> = <span class="ruby-identifier">usuario</span>.<span class="ruby-identifier">codificador</span>
