@@ -11,7 +11,7 @@ class TextoPlano
     password
   end
 
-  def validar(password, password_encriptada)
-    password == password_encriptada
+  def es_valido?(password, password_encriptada)
+    password.eql? password_encriptada
   end
 end

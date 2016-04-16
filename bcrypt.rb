@@ -13,7 +13,7 @@ class Bcrypt
     Password.create(password, cost: 10)
   end
 
-  def validar(password, password_encriptada)
-    Password.new(password_encriptada) == password
+  def es_valido?(password, password_encriptada)
+    password_encriptada == password
   end
 end

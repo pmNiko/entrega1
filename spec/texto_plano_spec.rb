@@ -9,6 +9,7 @@ describe TextoPlano do
 
   it 'Validacion de una clave alfanumerica' do
     clave = codificador.encriptar 'miclavesegura'
+    
     expect(codificador.validar('miclavesegura', clave)).to be true
     expect(codificador.validar('otraClave09', clave)).to be false
   end

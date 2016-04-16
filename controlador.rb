@@ -36,8 +36,8 @@ class Controlador
     @manager.reencriptar(nick, password)
   end
 
-  def validar(nick, password)
-    @manager.validar(nick, password)
+  def es_valido?(nick, password)
+    @manager.es_valido?(nick, password)
   end
 
   def abrir_sesion(nick)

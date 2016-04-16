@@ -22,7 +22,7 @@ class CaesarCipher
     password.tr(@cipher, @alfanumerico)
   end
 
-  def validar(password, password_encriptada)
-    password == desencriptar(password_encriptada)
+  def es_valido?(password, password_encriptada)
+    password.eql? desencriptar(password_encriptada)
   end
 end

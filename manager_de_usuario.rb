@@ -7,20 +7,22 @@ require_relative 'bcrypt'
 class ManagerDeUsuario
   attr_reader :usuarios, :codificador_asignado
   def initialize
-    @usuarios = []
+    pass = Bcrypt.new.encriptar('pass')
+    martin = Usuario.new('martin', pass, Bcrypt.new)
+    @usuarios = [martin]
   end
 
-  def validar(nick, password)
+  def es_valido?(nick, password)
     usuario = buscar(nick)
     codificador = usuario.codificador
-    codificador.validar(password, usuario.password)
+    raise ArgumentError unless codificador.es_valido?(password, usuario.password)
   end
 
   # Este se usara cuando el usuario decida cambiar el metodo de cifrado.
   def reencriptar(nick, password)
     usuario = buscar(nick)
     usuario.codificador = @codificador_asignado
-    usuario.password = @codificador_asignado.encriptar(password)
+    raise 'No valida' unless usuario.password = @codificador_asignado.encriptar(password)
   end
 
   def registrar(nick, password)
