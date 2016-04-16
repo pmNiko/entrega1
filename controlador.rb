@@ -24,10 +24,14 @@ class Controlador
     @sesion.usuario_actual
   end
 
-  def existe_nick?(nick)
-    @manager.existe_nick?(nick)
+  def validar_nick(nick)
+    @manager.validar_nick(nick)
   end
 
+  def validar_usuario(nick, password)
+    @manager.validar_usuario(nick, password)
+  end
+  
   def registrar(nick, password)
     @manager.registrar(nick, password)
   end
@@ -36,9 +40,6 @@ class Controlador
     @manager.reencriptar(nick, password)
   end
 
-  def es_valido?(nick, password)
-    @manager.es_valido?(nick, password)
-  end
 
   def abrir_sesion(nick)
     @sesion.conectar_con(nick)
