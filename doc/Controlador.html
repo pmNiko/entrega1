@@ -80,8 +80,6 @@
     
     <li ><a href="#method-i-codificador_de">#codificador_de</a>
     
-    <li ><a href="#method-i-existe_nick-3F">#existe_nick?</a>
-    
     <li ><a href="#method-i-hay_sesion-3F">#hay_sesion?</a>
     
     <li ><a href="#method-i-reencriptar">#reencriptar</a>
@@ -96,7 +94,9 @@
     
     <li ><a href="#method-i-usuario_actual">#usuario_actual</a>
     
-    <li ><a href="#method-i-validar">#validar</a>
+    <li ><a href="#method-i-validar_nick">#validar_nick</a>
+    
+    <li ><a href="#method-i-validar_usuario">#validar_usuario</a>
     
   </ul>
 </div>
@@ -111,6 +111,10 @@
 
   <section class="description">
     
+<p>Esta clase sera la encargada de derivar los procesos a quien corresponda.</p>
+
+<h1 id="class-Controlador-label-3ESepara+la+vista+del+modelo+siguiendo+el+modelo+MVC.">&gt;Separa la vista del modelo siguiendo el modelo MVC.<span><a href="#class-Controlador-label-3ESepara+la+vista+del+modelo+siguiendo+el+modelo+MVC.">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
   </section>
 
   
@@ -151,7 +155,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File controlador.rb, line 5</span>
+            <pre><span class="ruby-comment"># File controlador.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
   <span class="ruby-ivar">@manager</span> = <span class="ruby-constant">ManagerDeUsuario</span>.<span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@sesion</span> = <span class="ruby-constant">Sesion</span>.<span class="ruby-identifier">new</span>
@@ -193,7 +197,7 @@
 
           
           <div class="method-source-code" id="abrir_sesion-source">
-            <pre><span class="ruby-comment"># File controlador.rb, line 42</span>
+            <pre><span class="ruby-comment"># File controlador.rb, line 43</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">abrir_sesion</span>(<span class="ruby-identifier">nick</span>)
   <span class="ruby-ivar">@sesion</span>.<span class="ruby-identifier">conectar_con</span>(<span class="ruby-identifier">nick</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -226,7 +230,7 @@
 
           
           <div class="method-source-code" id="cerrar_sesion-source">
-            <pre><span class="ruby-comment"># File controlador.rb, line 46</span>
+            <pre><span class="ruby-comment"># File controlador.rb, line 47</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">cerrar_sesion</span>
   <span class="ruby-ivar">@sesion</span>.<span class="ruby-identifier">desconectar</span>
 <span class="ruby-keyword">end</span></pre>
@@ -259,7 +263,7 @@
 
           
           <div class="method-source-code" id="codificador_asignado-source">
-            <pre><span class="ruby-comment"># File controlador.rb, line 10</span>
+            <pre><span class="ruby-comment"># File controlador.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">codificador_asignado</span>
   <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">codificador_asignado</span>.<span class="ruby-identifier">descripcion</span>
 <span class="ruby-keyword">end</span></pre>
@@ -292,42 +296,9 @@
 
           
           <div class="method-source-code" id="codificador_de-source">
-            <pre><span class="ruby-comment"># File controlador.rb, line 14</span>
+            <pre><span class="ruby-comment"># File controlador.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">codificador_de</span>(<span class="ruby-identifier">nick</span>)
   <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">codificador_de</span>(<span class="ruby-identifier">nick</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-existe_nick-3F" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">existe_nick?</span><span
-            class="method-args">(nick)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="existe_nick-3F-source">
-            <pre><span class="ruby-comment"># File controlador.rb, line 26</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">existe_nick?</span>(<span class="ruby-identifier">nick</span>)
-  <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">existe_nick?</span>(<span class="ruby-identifier">nick</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -358,7 +329,7 @@
 
           
           <div class="method-source-code" id="hay_sesion-3F-source">
-            <pre><span class="ruby-comment"># File controlador.rb, line 18</span>
+            <pre><span class="ruby-comment"># File controlador.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">hay_sesion?</span>
   <span class="ruby-ivar">@sesion</span>.<span class="ruby-identifier">hay_usuario_logueado?</span>
 <span class="ruby-keyword">end</span></pre>
@@ -391,7 +362,7 @@
 
           
           <div class="method-source-code" id="reencriptar-source">
-            <pre><span class="ruby-comment"># File controlador.rb, line 34</span>
+            <pre><span class="ruby-comment"># File controlador.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">reencriptar</span>(<span class="ruby-identifier">nick</span>, <span class="ruby-identifier">password</span>)
   <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">reencriptar</span>(<span class="ruby-identifier">nick</span>, <span class="ruby-identifier">password</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -424,7 +395,7 @@
 
           
           <div class="method-source-code" id="registrar-source">
-            <pre><span class="ruby-comment"># File controlador.rb, line 30</span>
+            <pre><span class="ruby-comment"># File controlador.rb, line 35</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">registrar</span>(<span class="ruby-identifier">nick</span>, <span class="ruby-identifier">password</span>)
   <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">registrar</span>(<span class="ruby-identifier">nick</span>, <span class="ruby-identifier">password</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -457,7 +428,7 @@
 
           
           <div class="method-source-code" id="usar_bcrypt-source">
-            <pre><span class="ruby-comment"># File controlador.rb, line 58</span>
+            <pre><span class="ruby-comment"># File controlador.rb, line 59</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">usar_bcrypt</span>
   <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">usar_bcrypt</span>
 <span class="ruby-keyword">end</span></pre>
@@ -490,7 +461,7 @@
 
           
           <div class="method-source-code" id="usar_caesar_cipher-source">
-            <pre><span class="ruby-comment"># File controlador.rb, line 54</span>
+            <pre><span class="ruby-comment"># File controlador.rb, line 55</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">usar_caesar_cipher</span>
   <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">usar_caesar_cipher</span>
 <span class="ruby-keyword">end</span></pre>
@@ -523,7 +494,7 @@
 
           
           <div class="method-source-code" id="usar_texto_plano-source">
-            <pre><span class="ruby-comment"># File controlador.rb, line 50</span>
+            <pre><span class="ruby-comment"># File controlador.rb, line 51</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">usar_texto_plano</span>
   <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">usar_texto_plano</span>
 <span class="ruby-keyword">end</span></pre>
@@ -556,7 +527,7 @@
 
           
           <div class="method-source-code" id="usuario_actual-source">
-            <pre><span class="ruby-comment"># File controlador.rb, line 22</span>
+            <pre><span class="ruby-comment"># File controlador.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">usuario_actual</span>
   <span class="ruby-ivar">@sesion</span>.<span class="ruby-identifier">usuario_actual</span>
 <span class="ruby-keyword">end</span></pre>
@@ -570,10 +541,43 @@
       </div>
 
     
-      <div id="method-i-validar" class="method-detail ">
+      <div id="method-i-validar_nick" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">validar</span><span
+          <span class="method-name">validar_nick</span><span
+            class="method-args">(nick)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="validar_nick-source">
+            <pre><span class="ruby-comment"># File controlador.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">validar_nick</span>(<span class="ruby-identifier">nick</span>)
+  <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">validar_nick</span>(<span class="ruby-identifier">nick</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-validar_usuario" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">validar_usuario</span><span
             class="method-args">(nick, password)</span>
           
           <span class="method-click-advice">click to toggle source</span>
@@ -588,10 +592,10 @@
           
 
           
-          <div class="method-source-code" id="validar-source">
-            <pre><span class="ruby-comment"># File controlador.rb, line 38</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">validar</span>(<span class="ruby-identifier">nick</span>, <span class="ruby-identifier">password</span>)
-  <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">validar</span>(<span class="ruby-identifier">nick</span>, <span class="ruby-identifier">password</span>)
+          <div class="method-source-code" id="validar_usuario-source">
+            <pre><span class="ruby-comment"># File controlador.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">validar_usuario</span>(<span class="ruby-identifier">nick</span>, <span class="ruby-identifier">password</span>)
+  <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">validar_usuario</span>(<span class="ruby-identifier">nick</span>, <span class="ruby-identifier">password</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           

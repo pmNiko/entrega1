@@ -31,7 +31,7 @@ class Controlador
   def validar_usuario(nick, password)
     @manager.validar_usuario(nick, password)
   end
-  
+
   def registrar(nick, password)
     @manager.registrar(nick, password)
   end
@@ -39,7 +39,6 @@ class Controlador
   def reencriptar(nick, password)
     @manager.reencriptar(nick, password)
   end
-
 
   def abrir_sesion(nick)
     @sesion.conectar_con(nick)

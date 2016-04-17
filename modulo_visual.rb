@@ -1,4 +1,6 @@
+# Clase definida para factorizar el codigo de la vista.
 class ModuloVisual
+  # Permite elegir al usuario entre los distintos encriptadores
   def menu_de_codificacion(un_controlador)
     say("\nElija un metodo de encriptacion para registrarse ...")
     choose do |codificacion|
@@ -18,6 +20,7 @@ class ModuloVisual
   end
 
   def menu_de_registro(un_controlador, un_nick)
+    say("\n>>La contraseña debe ser alfanumerica.")
     password = ask('>>Ingrese su contraseña:  ') do |q|
       q.echo = '*'
       q.validate = /^[A-Za-z0-9]+$/
@@ -32,18 +35,21 @@ class ModuloVisual
     end
   end
 
-  def menu_buscar_nick(un_controlador)
-    nick = ''
+  # Sirve para la busqueda de un nick disponible
+  def menu_buscar_nick(un_controlador, un_nick)
+    say("\nEl nick que eligio se encuentra en uso, pronto tendremos"\
+    ' un ayudante, por favor vuelva a intentar ó elija terminar.')
     terminar = false
     loop do
       choose do |opcion|
         opcion.choice(:Elegir_nick) do
-          nick = ask("\nIngrese su usuario:  ")
+          un_nick = ask("\nIngrese su usuario:  ")
           begin
-            un_controlador.validar_nick(nick)
+            un_controlador.validar_nick(un_nick)
             say('El nick que eligio se encuentra en uso, pronto tendremos'\
             ' un ayudante, por favor vuelva a intentar ó elija terminar.')
           rescue NickNoRegistrado
+            menu_de_registro(un_controlador, un_nick)
             terminar = true
           end
         end
@@ -54,7 +60,5 @@ class ModuloVisual
       end
       break if terminar
     end
-    nick
   end
-
 end

@@ -4,6 +4,7 @@ require_relative 'modulo_visual'
 @visualizar = ModuloVisual.new
 @controlador = Controlador.new
 
+say('Bienvenido a la Aplicacion')
 loop do
   say '____ Elija una opcion: ____'
   choose do |menu|
@@ -21,11 +22,12 @@ loop do
         password = ask('>>>Ingrese su contraseña:  ') { |q| q.echo = '*' }
         begin
           @controlador.validar_usuario(nick_usuario, password)
-          say("\n>>>Encriptador actual: #{@controlador.codificador_de(nick_usuario)}\n\n")
+          say("\n>>>Encriptador actual: "\
+          "#{@controlador.codificador_de(nick_usuario)}\n\n")
           @visualizar.menu_de_codificacion(@controlador)
           @controlador.reencriptar(nick_usuario, password)
         rescue PasswordInvalido
-          say("> > >La contraseña no es valida, usted no es #{nick_usuario}.\n\n")
+          say("> > >Contraseña incorrecta, usted no es #{nick_usuario}.\n\n")
         end
       end
 
@@ -39,12 +41,12 @@ loop do
           begin
             @controlador.validar_usuario(nick, password)
             @controlador.abrir_sesion(nick)
-            say(">>>Gracias por iniciar sesion **#{nick}***\n\n")
+            say("\n>>>Gracias por iniciar sesion **#{nick}***\n\n")
           rescue PasswordInvalido
-            say("Usuario o contraseña invalid@s por favor vuelva a intentar.\n\n")
+            say("\nContraseña invalida por favor vuelva a intentar.\n\n")
           end
         rescue NickNoRegistrado
-          say("El usuario #{nick} no existe vuelva a intentar o registrese.\n")
+          say("\nEl usuario #{nick} no existe vuelva a intentar o registrese.\n")
         end
       end
 
@@ -53,10 +55,7 @@ loop do
         nick = ask('>>Ingrese su usuario:  ')
         begin
           @controlador.validar_nick(nick)
-          say("\nEl nick que eligio se encuentra en uso, pronto tendremos"\
-          ' un ayudante, por favor vuelva a intentar ó elija terminar.')
-          nick = @visualizar.menu_buscar_nick(@controlador)
-          @visualizar.menu_de_registro(@controlador, nick)
+          @visualizar.menu_buscar_nick(@controlador, nick)
         rescue NickNoRegistrado
           @visualizar.menu_de_registro(@controlador, nick)
         end
@@ -65,9 +64,11 @@ loop do
 
     menu.choice(:Estado) do
       if @controlador.hay_sesion?
-        say(">>>Usted esta logueado como ~> #{@controlador.usuario_actual} <~\n\n")
+        say(">>>Usted esta logueado como "\
+        "~> #{@controlador.usuario_actual} <~\n\n")
       else
-        say(">>Usted esta \" Deslogueado \" por favor inicie sesion o registrese.\n\n")
+        say(">>Usted esta \" Deslogueado \" "\
+        "por favor inicie sesion o registrese.\n\n")
       end
     end
 

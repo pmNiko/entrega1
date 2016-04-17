@@ -51,6 +51,16 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-Bcrypt-label-3EEste+es+uno+de+los+metodos+de+encriptacion.">&gt;Este es uno de los metodos de encriptacion.</a>
+    <li><a href="#class-Bcrypt-label-3EVulnerabilidad-3A++-22Baja-22+-28Recomendado-29">&gt;Vulnerabilidad:  “Baja” (Recomendado)</a>
+    <li><a href="#class-Bcrypt-label-3EDesencriptado-3A+++--3E+No+es+reversible.">&gt;Desencriptado:   -&gt; No es reversible.</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -74,7 +84,7 @@
     
     <li ><a href="#method-i-encriptar">#encriptar</a>
     
-    <li ><a href="#method-i-validar">#validar</a>
+    <li ><a href="#method-i-es_valido-3F">#es_valido?</a>
     
   </ul>
 </div>
@@ -89,6 +99,14 @@
 
   <section class="description">
     
+<p>Definicion de la clase <a href="Bcrypt.html">Bcrypt</a>.</p>
+
+<h1 id="class-Bcrypt-label-3EEste+es+uno+de+los+metodos+de+encriptacion.">&gt;Este es uno de los metodos de encriptacion.<span><a href="#class-Bcrypt-label-3EEste+es+uno+de+los+metodos+de+encriptacion.">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h1 id="class-Bcrypt-label-3EVulnerabilidad-3A++-22Baja-22+-28Recomendado-29">&gt;Vulnerabilidad:  “Baja” (Recomendado)<span><a href="#class-Bcrypt-label-3EVulnerabilidad-3A++-22Baja-22+-28Recomendado-29">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h1 id="class-Bcrypt-label-3EDesencriptado-3A+++--3E+No+es+reversible.">&gt;Desencriptado:   -&gt; No es reversible.<span><a href="#class-Bcrypt-label-3EDesencriptado-3A+++--3E+No+es+reversible.">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
   </section>
 
   
@@ -129,7 +147,7 @@
 
           
           <div class="method-source-code" id="descripcion-source">
-            <pre><span class="ruby-comment"># File bcrypt.rb, line 5</span>
+            <pre><span class="ruby-comment"># File bcrypt.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">descripcion</span>
   <span class="ruby-string">&#39;BCrypt&#39;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -162,7 +180,7 @@
 
           
           <div class="method-source-code" id="encriptar-source">
-            <pre><span class="ruby-comment"># File bcrypt.rb, line 9</span>
+            <pre><span class="ruby-comment"># File bcrypt.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">encriptar</span>(<span class="ruby-identifier">password</span>)
   <span class="ruby-constant">Password</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">password</span>, <span class="ruby-identifier">cost</span><span class="ruby-operator">:</span> <span class="ruby-value">10</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -176,10 +194,10 @@
       </div>
 
     
-      <div id="method-i-validar" class="method-detail ">
+      <div id="method-i-es_valido-3F" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">validar</span><span
+          <span class="method-name">es_valido?</span><span
             class="method-args">(password, password_encriptada)</span>
           
           <span class="method-click-advice">click to toggle source</span>
@@ -194,10 +212,10 @@
           
 
           
-          <div class="method-source-code" id="validar-source">
-            <pre><span class="ruby-comment"># File bcrypt.rb, line 13</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">validar</span>(<span class="ruby-identifier">password</span>, <span class="ruby-identifier">password_encriptada</span>)
-  <span class="ruby-constant">Password</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">password_encriptada</span>) <span class="ruby-operator">==</span> <span class="ruby-identifier">password</span>
+          <div class="method-source-code" id="es_valido-3F-source">
+            <pre><span class="ruby-comment"># File bcrypt.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">es_valido?</span>(<span class="ruby-identifier">password</span>, <span class="ruby-identifier">password_encriptada</span>)
+  <span class="ruby-identifier">password_encriptada</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">password</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           

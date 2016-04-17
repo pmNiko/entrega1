@@ -8,25 +8,28 @@ require_relative 'excepcion.rb'
 class ManagerDeUsuario
   attr_reader :usuarios, :codificador_asignado
   def initialize
-    pass = Bcrypt.new.encriptar('pass')
-    martin = Usuario.new('martin', pass, Bcrypt.new)
-    @usuarios = [martin]
+    @usuarios = []
+    usar_bcrypt
+    registrar('Andres', 'Pass36')
   end
 
   def validar_usuario(nick, password)
-    usuario = buscar(nick)
-    codificador = usuario.codificador
-    raise PasswordInvalido.new unless codificador.es_valido?(password, usuario.password)
+    begin
+      usuario = buscar(nick)
+      codificador = usuario.codificador
+      raise PasswordInvalido unless codificador.es_valido?(password, usuario.password)
+    rescue UsuarioNoExiste
+    end
   end
 
   def validar_nick(nick)
-    raise NickNoRegistrado.new unless @usuarios.any? { |usuario| usuario.nick.eql? nick }
+    raise NickNoRegistrado unless @usuarios.any? { |usuario| usuario.nick.eql? nick }
   end
 
   # Este se usara cuando el usuario decida cambiar el metodo de cifrado.
   def reencriptar(nick, password)
     usuario = buscar(nick)
-    #Reasigna Codificador
+    # Reasigna Codificador
     usuario.codificador = @codificador_asignado
     usuario.password = @codificador_asignado.encriptar(password)
   end
@@ -34,11 +37,6 @@ class ManagerDeUsuario
   def registrar(nick, password)
     password = @codificador_asignado.encriptar(password)
     @usuarios << Usuario.new(nick, password, @codificador_asignado)
-  end
-
-
-  def buscar(nick)
-    @usuarios.detect(-> { UsuarioNoExiste.new(nick) }) { |usuario| usuario.nick.eql? nick }
   end
 
   def codificador_de(nick)
@@ -56,5 +54,9 @@ class ManagerDeUsuario
 
   def usar_bcrypt
     @codificador_asignado = Bcrypt.new
+  end
+
+  def buscar(nick)
+    @usuarios.detect(-> { raise UsuarioNoExiste }) { |u| u.nick.eql? nick }
   end
 end

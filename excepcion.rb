@@ -1,8 +1,6 @@
 class UsuarioNoExiste < StandardError
-  def initialize(nick_de_usuario)
-    @nick_de_usuario = nick_de_usuario
-    mensaje = 'El usuario "'+ @nick_de_usuario +'" no existe'
-    super(mensaje)
+  def initialize
+    super('El usuario no existe')
   end
 end
 

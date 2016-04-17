@@ -51,6 +51,16 @@
   </div>
 
   
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-CaesarCipher-label-3EEste+es+uno+de+los+metodos+de+encriptacion.">&gt;Este es uno de los metodos de encriptacion.</a>
+    <li><a href="#class-CaesarCipher-label-3EVulnerabilidad-3A++-22Alta-22+-28No+utilizar-29">&gt;Vulnerabilidad:  “Alta” (No utilizar)</a>
+    <li><a href="#class-CaesarCipher-label-3EDesencriptado-3A+++--3E+Por+fuerza+bruta+o+analisis+de+frecuencia+de+letras.">&gt;Desencriptado:   -&gt; Por fuerza bruta o analisis de frecuencia de letras.</a>
+  </ul>
+</div>
+
 
   <div id="class-metadata">
     
@@ -74,11 +84,9 @@
     
     <li ><a href="#method-i-descripcion">#descripcion</a>
     
-    <li ><a href="#method-i-desencriptar">#desencriptar</a>
-    
     <li ><a href="#method-i-encriptar">#encriptar</a>
     
-    <li ><a href="#method-i-validar">#validar</a>
+    <li ><a href="#method-i-es_valido-3F">#es_valido?</a>
     
   </ul>
 </div>
@@ -93,6 +101,14 @@
 
   <section class="description">
     
+<p>Definicion de la clase <a href="CaesarCipher.html">CaesarCipher</a>.</p>
+
+<h1 id="class-CaesarCipher-label-3EEste+es+uno+de+los+metodos+de+encriptacion.">&gt;Este es uno de los metodos de encriptacion.<span><a href="#class-CaesarCipher-label-3EEste+es+uno+de+los+metodos+de+encriptacion.">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h1 id="class-CaesarCipher-label-3EVulnerabilidad-3A++-22Alta-22+-28No+utilizar-29">&gt;Vulnerabilidad:  “Alta” (No utilizar)<span><a href="#class-CaesarCipher-label-3EVulnerabilidad-3A++-22Alta-22+-28No+utilizar-29">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h1 id="class-CaesarCipher-label-3EDesencriptado-3A+++--3E+Por+fuerza+bruta+o+analisis+de+frecuencia+de+letras.">&gt;Desencriptado:   -&gt; Por fuerza bruta o analisis de frecuencia de letras.<span><a href="#class-CaesarCipher-label-3EDesencriptado-3A+++--3E+Por+fuerza+bruta+o+analisis+de+frecuencia+de+letras.">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
   </section>
 
   
@@ -177,42 +193,9 @@
 
           
           <div class="method-source-code" id="descripcion-source">
-            <pre><span class="ruby-comment"># File caesar_cipher.rb, line 2</span>
+            <pre><span class="ruby-comment"># File caesar_cipher.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">descripcion</span>
   <span class="ruby-string">&#39;Caesar Cipher&#39;</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-desencriptar" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">desencriptar</span><span
-            class="method-args">(password)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="desencriptar-source">
-            <pre><span class="ruby-comment"># File caesar_cipher.rb, line 17</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">desencriptar</span>(<span class="ruby-identifier">password</span>)
-  <span class="ruby-identifier">password</span>.<span class="ruby-identifier">tr</span>(<span class="ruby-ivar">@cipher</span>, <span class="ruby-ivar">@alfanumerico</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -243,7 +226,7 @@
 
           
           <div class="method-source-code" id="encriptar-source">
-            <pre><span class="ruby-comment"># File caesar_cipher.rb, line 13</span>
+            <pre><span class="ruby-comment"># File caesar_cipher.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">encriptar</span>(<span class="ruby-identifier">password</span>)
   <span class="ruby-identifier">password</span>.<span class="ruby-identifier">tr</span>(<span class="ruby-ivar">@alfanumerico</span>, <span class="ruby-ivar">@cipher</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -257,10 +240,10 @@
       </div>
 
     
-      <div id="method-i-validar" class="method-detail ">
+      <div id="method-i-es_valido-3F" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">validar</span><span
+          <span class="method-name">es_valido?</span><span
             class="method-args">(password, password_encriptada)</span>
           
           <span class="method-click-advice">click to toggle source</span>
@@ -275,10 +258,10 @@
           
 
           
-          <div class="method-source-code" id="validar-source">
+          <div class="method-source-code" id="es_valido-3F-source">
             <pre><span class="ruby-comment"># File caesar_cipher.rb, line 21</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">validar</span>(<span class="ruby-identifier">password</span>, <span class="ruby-identifier">password_encriptada</span>)
-  <span class="ruby-identifier">password</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">desencriptar</span>(<span class="ruby-identifier">password_encriptada</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">es_valido?</span>(<span class="ruby-identifier">password</span>, <span class="ruby-identifier">password_encriptada</span>)
+  <span class="ruby-identifier">password</span>.<span class="ruby-identifier">eql?</span> <span class="ruby-identifier">desencriptar</span>(<span class="ruby-identifier">password_encriptada</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
