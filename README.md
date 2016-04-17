@@ -1,26 +1,26 @@
 PRIMERA APLICACION RUBY
 ========
 
-Descripcion
+Descripción
 -----------
 
-Bienvenido a mi primera aplicacion ruby.
+Bienvenido a mi primera aplicación ruby.
 
-Esta aplicacion ofrece la posibilidad de interactuar con una interfaz visual de nivel consola.
-Dando la funcionalidad basica de un menu de cualquier aplicacion web, tales como iniciar/cerrar sesion,
+Esta aplicación ofrece la posibilidad de interactuar con una interfaz visual de nivel consola.
+Dando la funcionalidad básica de un menú de cualquier aplicación web, tales como iniciar/cerrar sesión,
 registrarse y saber el estado del usuario.
 Tiene cargado un usuario por defecto para su testeo:
 -> usuario: "Andres"  -> contraseña: "Pass36"  ->Contraseña encriptada con metodo BCrypt.
-permite el uso de contraseñas alfanumericas es decir combinar letras mayusculas/minusculas con numeros.
+permite el uso de contraseñas alfanuméricas, es decir, combinar letras mayúsculas/minúsculas con números.
 
-Normalizado casi al maximo segun rubocop
+Normalizado casi al máximo segun rubocop
 ------------------------------------
 ```Rubocop
   ver:
     https://github.com/bbatsov/rubocop
 ```
 
-Documentacion
+Documentación
 -------------
 ```RDoc
   Clases documentadas con RDoc
@@ -39,12 +39,12 @@ Acceso: una vez clonado el proyecto a su equipo acceda por medio de la terminal 
 Requerimientos
 ------------
 ```ruby
-  Version ruby + gemset  
+  Versión ruby + gemset  
 
     Using ruby-2.0.0-p598 with gemset entrega1
 ```
 ```ruby
-  Version de git
+  Versión de git
 
     git version 1.9.1
 ```
@@ -81,24 +81,24 @@ Acceso al proyecto
   #luego para utilizar la gema del proyecto
     -> $ rvm gemset use entrega1
 
-  #Finalmente para acceder a la aplicacion.
+  #Finalmente para acceder a la aplicación.
     -> $ ruby cmd.rb
 ```
 
 ```ruby
       # VISUAL
-        Bienvenido a la Aplicacion
-        ____ Elija una opcion: ____
-        1. Iniciar_Sesion
+        Bienvenido a la Aplicación
+        ____ Elija una opción: ____
+        1. Iniciar_Sesión
         2. Registrarse
         3. Estado
         4. Salir
 ```
 ```ruby
       # USO BASICO
-            Bienvenido a la Aplicacion
-        ____ Elija una opcion: ____
-        1. Iniciar_Sesion
+            Bienvenido a la Aplicación
+        ____ Elija una opción: ____
+        1. Iniciar_Sesión
         2. Registrarse
         3. Estado
         4. Salir
@@ -111,9 +111,9 @@ Acceso al proyecto
 
 -----
 ```ruby
-      # Iniciar_Sesion
-        ____ Elija una opcion: ____
-        1. Iniciar_Sesion
+      # Iniciar_Sesión
+        ____ Elija una opción: ____
+        1. Iniciar_Sesión
         2. Registrarse
         3. Estado
         4. Salir
@@ -121,11 +121,11 @@ Acceso al proyecto
         >>ingrese su usuario:  Andres
         >>>Ingrese su contraseña:  ******             
 
-        >>>Gracias por iniciar sesion **Andres***
+        >>>Gracias por iniciar sesión **Andres***
 
-        ____ Elija una opcion: ____
-        1. Cerrar_Sesion
-        2. Cambiar_Encriptacion
+        ____ Elija una opción: ____
+        1. Cerrar_Sesión
+        2. Cambiar_Encriptación
         3. Estado
         4. Salir
         ?  3
@@ -136,9 +136,9 @@ Acceso al proyecto
 -----
 ```ruby  
       # Usuario_Incorrecto
-        Bienvenido a la Aplicacion
-        ____ Elija una opcion: ____
-        1. Iniciar_Sesion
+        Bienvenido a la Aplicación
+        ____ Elija una opción: ____
+        1. Iniciar_Sesión
         2. Registrarse
         3. Estado
         4. Salir
@@ -146,8 +146,8 @@ Acceso al proyecto
         >>ingrese su usuario:  Pepe
 
         El usuario Pepe no existe vuelva a intentar o registrese.
-        ____ Elija una opcion: ____
-        1. Iniciar_Sesion
+        ____ Elija una opción: ____
+        1. Iniciar_Sesión
         2. Registrarse
         3. Estado
         4. Salir
@@ -158,10 +158,10 @@ Acceso al proyecto
 
 -----
 ```ruby
-      # Cerrar_Sesion
-        Bienvenido a la Aplicacion
-        ____ Elija una opcion: ____
-        1. Iniciar_Sesion
+      # Cerrar_Sesión
+        Bienvenido a la Aplicación
+        ____ Elija una opción: ____
+        1. Iniciar_Sesión
         2. Registrarse
         3. Estado
         4. Salir
@@ -169,11 +169,11 @@ Acceso al proyecto
         >>ingrese su usuario:  Andres
         >>>Ingrese su contraseña:  ******
 
-        >>>Gracias por iniciar sesion **Andres***
+        >>>Gracias por iniciar sesión **Andres***
 
-        ____ Elija una opcion: ____
-        1. Cerrar_Sesion
-        2. Cambiar_Encriptacion
+        ____ Elija una opción: ____
+        1. Cerrar_Sesión
+        2. Cambiar_Encriptación
         3. Estado
         4. Salir
         ?  1
@@ -187,20 +187,20 @@ Detalles:
 ```
 * Se utilizo la arquitectura MVC
 * El modelo se relaciona con la vista mediante un controlador
-* El estado del usuario se modelo a través un objeto desacoplado "Sesion"
-* En la vista el unico objeto del modelo que se maneja es instacia de Sesion
-* El usuario puede elegir con que metodo de encriptacion registararse
-* Un usuario logueado puede elegir cambiar el metodo de encriptacion previa autentificacion
-* Multiples usuarios pueden tener distintos metodos de encriptacion y cambiarlos en tiempo de ejecucion
-* Pueden registrarse multiples usuario y quedar almacenados en tiempo de ejecucion
-* La opcion iniciar/cerrar sesion aparecera dependiendo del estado del usuario.
-* La contraseña del usuario puede registar caracteres alfanumericos, no admite caracteres especiales
+* El estado del usuario se modeló a través de un objeto desacoplado "Sesión"
+* En la vista el único objeto del modelo que se maneja es instancia de Sesión
+* El usuario puede elegir con que metodo de encriptación registrarse
+* Un usuario logueado puede elegir cambiar el metodo de encriptación, previa autentificación
+* Multiples usuarios pueden tener distintos metodos de encriptación y cambiarlos en tiempo de ejecución
+* Pueden registrarse multiples usuario y quedar almacenados en tiempo de ejecución
+* La opción iniciar/cerrar sesión aparecerá dependiendo del estado del usuario.
+* La contraseña del usuario puede registrar caracteres alfanuméricos, no admite caracteres especiales
 * No se admiten dos usuarios con el mismo nick de usuario
-* Metodos de encriptacion disponibles: ->"Texto Plano" ->"Caesar Cipher" ->"BCrypt"
+* Metodos de encriptación disponibles: ->"Texto Plano" ->"Caesar Cipher" ->"BCrypt"
 ```
 -----
 
-Pie de pagina
+Pie de página
 -----
 * [Martin Nicolas Paneblanco](https://github.com/pmNiko) - Autor
 * [Andres Fortier](https://github.com/andres-fortier) - Profesor
