@@ -11,7 +11,7 @@ Dando la funcionalidad basica de un menu de cualquier aplicacion web, tales como
 registrarse y saber el estado del usuario.
 Tiene cargado un usuario por defecto para su testeo:
 -> usuario: "Andres"  -> contraseña: "Pass36"  ->Contraseña encriptada con metodo BCrypt.
-permite el uso de contraseñas alfanumericas es decir combinar lestras mayusculas/minusculas con numeros.
+permite el uso de contraseñas alfanumericas es decir combinar letras mayusculas/minusculas con numeros.
 
 Normalizado casi al maximo segun rubocop
 ------------------------------------
